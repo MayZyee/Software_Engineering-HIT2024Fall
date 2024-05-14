@@ -62,7 +62,7 @@ public:
         while (1)
         { // 无限循环，除非用户选择退出
             char ch;
-            std::cout<<"press '0'~'4'"<<std::endl;
+            std::cout << "press '0'~'4'" << std::endl;
             std::cin >> ch; // 等待用户输入
             switch (ch)
             {
@@ -104,7 +104,8 @@ public:
 
     // 执行桥接文本生成
     void try_generateNewText()
-    {   getchar();
+    {
+        getchar();
         std::cout << "plz input a text toget generateNewText" << std::endl;
         std::string text;
         getline(std::cin, text);
@@ -113,7 +114,8 @@ public:
 
     // 执行计算最短路径
     void try_calcShortestPath()
-    {   getchar();
+    {
+        getchar();
         std::cout << "plz input 1 or 2 words toget shortestPath " << std::endl;
         std::string input;
         getline(std::cin, input);
@@ -223,10 +225,10 @@ private:
     }
 
     // 查询桥接词
-    std::vector<std::string> queryBridgeWords(std::string word1, std::string word2, int print = 1)
+    std::vector<std::string> queryBridgeWords(std::string word1, std::string word2, int if_print = 1)
     {
         std::vector<std::string> bridgewords = {};
-        if (print)
+        if (if_print)
             if ((nodes.find(word1) == nodes.end()) &&
                 nodes.find(word2) == nodes.end())
             {
@@ -301,13 +303,13 @@ private:
                 *t2 = tolower(*t2);
             }
         }
-        int print = 0;
+        int if_print = 0;
         std::string newtext;
         for (int i = 0; i < text2words.size() - 1; i++)
         {
             newtext += text2words[i] + " ";
-            if (queryBridgeWords(lowers[i], lowers[i + 1], print).size() != 0)
-                newtext += queryBridgeWords(lowers[i], lowers[i + 1], print)[0] + " ";
+            if (queryBridgeWords(lowers[i], lowers[i + 1], if_print).size() != 0)
+                newtext += queryBridgeWords(lowers[i], lowers[i + 1], if_print)[0] + " ";
         }
         newtext += text2words[text2words.size() - 1];
         std::cout << newtext << std::endl;
@@ -356,7 +358,6 @@ private:
                 dist[nodes[start]] = 0;
         }
         pq.push({0, start});
-
         while (!pq.empty())
         {
             auto [d, u] = pq.top();
