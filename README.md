@@ -8,18 +8,16 @@
 
 另，**由不当使用此项目造成的课业危险由使用者自行承担！！笔者不负任何责任！！** 😇
 
-- [Lab1](# Lab 1：结对编程与Git实战)
-    - [Input](# Input)
-    - [Make_Graph](# Make_Graph)
-    - [Show_Graph](# Show_Graph)
-        - [关于Graphviz](# 关于Graphviz)
-          
-    - [Bridge_Words](# Bridge_Words)
-    - [Generate_Text](# Generate_Text)
-    - [Shortest_Path](# Shortest_Path)
-    - [Random_Walk](# Random_Walk)
-      
-- [迭代](# 重大迭代)
+- [Lab1](#Lab 1：结对编程与Git实战)
+    - [Input](#Input)
+    - [Make_Graph](#Make_Graph)
+    - [Show_Graph](#Show_Graph)
+        - [关于Graphviz](#关于Graphviz)
+    - [Bridge_Words](#Bridge_Words)
+    - [Generate_Text](#Generate_Text)
+    - [Shortest_Path](#Shortest_Path)
+    - [Random_Walk](#Random_Walk)
+- [迭代](#重大迭代)
   
 ## Lab 1：结对编程与Git实战
 
