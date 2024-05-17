@@ -8,7 +8,7 @@
 
 另，**由不当使用此项目造成的课业危险由使用者自行承担！！笔者不负任何责任！！** 😇
 
-- [Lab1](#Lab 1：结对编程与Git实战)
+- [Lab1](#Lab1：结对编程与Git实战)
     - [Input](#Input)
     - [Make_Graph](#Make_Graph)
     - [Show_Graph](#Show_Graph)
