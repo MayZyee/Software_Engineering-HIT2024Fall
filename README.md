@@ -19,7 +19,7 @@
     - [Random_Walk](#Random_Walk)
 - [迭代](#重大迭代)
   
-## Lab 1：结对编程与Git实战
+## Lab1：结对编程与Git实战
 
 
 如果能找到平替就无所谓了，或者Lab3再用Java写一份
