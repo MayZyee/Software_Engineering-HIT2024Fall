@@ -257,7 +257,7 @@ private:
                                     bridgewords.push_back(bridge.first);
             }
         }
-        if (print)
+        if (if_print)
             if (bridgewords.size() == 0)
             {
                 std::cerr << "No bridge words from \"" << word1 << "\" to \"" << word2 << "\"!" << std::endl;
