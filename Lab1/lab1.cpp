@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <queue>
 #include <conio.h>
+#include <map>
 
 class read
 {
@@ -442,7 +443,7 @@ private:
         }
 
         // 如果终点不可达，则返回空
-        if (dist[nodes[end]] == INT_MAX)
+        if (dist[nodes[end]] == INT_MAX && start != end)
         {
             std::cout << "The two nodes are not reachable." << std::endl;
             return {};
@@ -458,6 +459,36 @@ private:
         }
         reverse(path.begin(), path.end());
 
+        // 是否是自身到自身
+        int length = INT_MAX;
+        if (start == end)
+        {
+            for (int i = 0; i < nodes.size(); i++)
+                for (auto &p : adj[i])
+                {
+                    if (p.first == nodes[start])
+                        length = std::min(length, p.second + dist[i]);
+                }
+
+            std::cout << length << std::endl;
+            int count;
+            for (int i = 0; i < nodes.size(); i++)
+                for (auto &p : adj[i])
+                    if (p.first == nodes[start] && (p.second + dist[i]) == length)
+                        count = i;
+
+            for (auto &p : nodes)
+                if (p.second == count)
+                    current = p.first;
+            while (current != "")
+            {
+                path.push_back(current);
+                current = prev[nodes[current]];
+            }
+            reverse(path.begin(), path.end());
+            // path.push_back(start);
+        }
+        dist[nodes[start]] = length;
         // 打印路径和长度
         std::cout << "Shortest path: ";
         for (int i = 0; i < path.size() - 1; i++)
@@ -466,6 +497,7 @@ private:
         }
         std::cout << end << std::endl;
         std::cout << "Length: " << dist[nodes[end]] << std::endl;
+
         return path;
     }
 
