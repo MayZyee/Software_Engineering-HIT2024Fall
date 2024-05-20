@@ -488,7 +488,16 @@ private:
             reverse(path.begin(), path.end());
             // path.push_back(start);
         }
-        dist[nodes[start]] = length;
+
+        if (!dist[nodes[start]])
+            dist[nodes[start]] = std::min(length, dist[nodes[start]]);
+
+        if (length == INT_MAX)
+        {
+            std::cout << "The two nodes are not reachable." << std::endl;
+            return {};
+        }
+
         // 打印路径和长度
         std::cout << "Shortest path: ";
         for (int i = 0; i < path.size() - 1; i++)
