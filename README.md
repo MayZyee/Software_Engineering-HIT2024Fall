@@ -28,7 +28,7 @@
 
 在`Lab1`文件夹下，`lab1.cpp`文件为整合后的代码，等价于`main.cpp`+`read.cpp`+`graph.cpp`
 
-若`main.cpp`+`read.cpp`+`graph.cpp`等文件报错，请以`lab1.cpp`代码内容为准
+若`main.cpp`+`read.cpp`+`graph.cpp`与`lab1.cpp`内容不同，请以`lab1.cpp`代码为准
 
 **本实验的数据结构写的非常抽象**，请斟酌使用😅
 
