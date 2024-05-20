@@ -115,6 +115,8 @@
 
 参考[一小时实践入门 Graphviz - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/644358139)
 
+此处也可用mermaid语言，导出md文件即可，读者可自行选取生成图片的方法
+
 ### Bridge_Words
 
 首先需要包含一些错误检查，如输入的`word1`与`word2`是否在单词表中等
