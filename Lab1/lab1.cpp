@@ -189,23 +189,51 @@ private:
                 token = "";
             }
             else
-                token += c;
+            {
+                if (c >= 'a' && c <= 'z')
+                    token += c;
+                else if (c >= 'A' && c <= 'Z')
+                    token += (c + 'a' - 'A');
+            }
         }
         tokens.push_back(token);
-
         if (tokens.size() - 1)
             if (tokens.size() - 2)
                 std::cout << "Invalid input." << std::endl;
             else
+            {
+                std::string start = tokens[0];
+                std::string end = tokens[1];
+                if ((nodes.find(start) == nodes.end()) &&
+                    nodes.find(end) == nodes.end())
+                {
+                    std::cerr << "No \"" << start << "\" and \"" << end << "\" in the graph!" << std::endl;
+                    return;
+                }
+                else if (nodes.find(start) == nodes.end())
+                {
+                    std::cerr << "No \"" << start << "\" in the graph!" << std::endl;
+                    return;
+                }
+                else if (nodes.find(end) == nodes.end())
+                {
+                    std::cerr << "No \"" << end << "\" in the graph!" << std::endl;
+                    return;
+                }
+                std::cout << "Shortest paths from " << tokens[0] << ":" << std::endl;
                 calcShortestPath(tokens[0], tokens[1]);
+            }
         else
         {
-            std::cout << "Shortest paths from " << token << ":" << std::endl;
             for (const auto &node : nodes)
             {
-                if (node.second != nodes[token])
                 {
-                    calcShortestPath(token, node.first);
+                    if (nodes.find(tokens[0]) == nodes.end())
+                    {
+                        std::cerr << "No \"" << tokens[0] << "\" in the graph!" << std::endl;
+                        return;
+                    }
+                    calcShortestPath(tokens[0], node.first);
                 }
             }
         }
@@ -404,16 +432,9 @@ private:
             pq;
 
         // 初始化起点到起点的距离为0
-        for (auto &p : adj[nodes[start]])
-        {
-            if (p.first == nodes[start])
-            {
-                dist[nodes[start]] = p.second;
-                break;
-            }
-            else
-                dist[nodes[start]] = 0;
-        }
+
+        dist[nodes[start]] = 0;
+
         pq.push({0, start});
         while (!pq.empty())
         {
@@ -443,7 +464,7 @@ private:
         }
 
         // 如果终点不可达，则返回空
-        if (dist[nodes[end]] == INT_MAX && start != end)
+        if (dist[nodes[end]] == INT_MAX)
         {
             std::cout << "The two nodes are not reachable." << std::endl;
             return {};
@@ -452,12 +473,6 @@ private:
         // 构建并打印路径
         std::vector<std::string> path;
         std::string current = end;
-        while (current != "")
-        {
-            path.push_back(current);
-            current = prev[nodes[current]];
-        }
-        reverse(path.begin(), path.end());
 
         // 是否是自身到自身
         int length = INT_MAX;
@@ -470,33 +485,59 @@ private:
                         length = std::min(length, p.second + dist[i]);
                 }
 
-            std::cout << length << std::endl;
-            int count;
-            for (int i = 0; i < nodes.size(); i++)
-                for (auto &p : adj[i])
-                    if (p.first == nodes[start] && (p.second + dist[i]) == length)
-                        count = i;
+            dist[nodes[start]] = INT_MAX;
+            for (auto &p : adj[nodes[start]])
+            {
+                // std::cout << "{" << p.first << "," << p.second << "}" << std::endl;
+                if (p.first == nodes[start])
+                {
+                    dist[nodes[start]] = std::min(p.second, dist[nodes[start]]);
+                    // std::cout<<dist[nodes[start]]<<std::endl;
+                }
+            }
+            // std::cout<<dist[nodes[start]]<<std::endl;
+            if (length == INT_MAX && dist[nodes[start]] == INT_MAX)
+            {
+                std::cout << "The two nodes are not reachable." << std::endl;
+                return {};
+            }
 
-            for (auto &p : nodes)
-                if (p.second == count)
-                    current = p.first;
+            if (length <= dist[nodes[start]])
+            {
+                int count;
+                for (int i = 0; i < nodes.size(); i++)
+                    for (auto &p : adj[i])
+                        if (p.first == nodes[start] && (p.second + dist[i]) == length)
+                            count = i;
+                for (auto &p : nodes)
+                    if (p.second == count)
+                        current = p.first;
+                while (current != "")
+                {
+                    path.push_back(current);
+                    current = prev[nodes[current]];
+                }
+                reverse(path.begin(), path.end());
+            }
+            else
+            {
+                path.push_back(start);
+                length = dist[nodes[start]];
+            }
+            // path.push_back(start);
+        }
+        else
+        {
             while (current != "")
             {
                 path.push_back(current);
                 current = prev[nodes[current]];
             }
             reverse(path.begin(), path.end());
-            // path.push_back(start);
         }
 
         if (!dist[nodes[start]])
             dist[nodes[start]] = std::min(length, dist[nodes[start]]);
-
-        if (length == INT_MAX)
-        {
-            std::cout << "The two nodes are not reachable." << std::endl;
-            return {};
-        }
 
         // 打印路径和长度
         std::cout << "Shortest path: ";
