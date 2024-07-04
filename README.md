@@ -22,7 +22,7 @@ git clone https://github.com/MayZyee/Financial_Management
 
 **如发现问题请及时发issue反馈编写者以修正 同样也欢迎发issue或邮件探讨项目的设计**
 
-- [Lab1](#Lab1结对编程与Git实战)
+- [Lab1](#结对编程与Git实战)
     - [Input](#Input)
     - [Make_Graph](#Make_Graph)
     - [Show_Graph](#Show_Graph)
@@ -31,12 +31,12 @@ git clone https://github.com/MayZyee/Financial_Management
     - [Generate_Text](#Generate_Text)
     - [Shortest_Path](#Shortest_Path)
     - [Random_Walk](#Random_Walk)
-- [Lab2](#Lab2项目计划与原型设计)
-- [Lab3](#Lab3代码评审与单元测试)
-- [Lab4](#Lab4OO分析与设计)
+- [Lab2](#项目计划与原型设计)
+- [Lab3](#代码评审与单元测试)
+- [Lab4](#OO分析与设计)
 - [Project](#Project)
 - [更新日志](#更新日志)
-## Lab1结对编程与Git实战
+## 结对编程与Git实战
 
 
 如果能找到平替就无所谓了，或者Lab3再用Java写一份
@@ -215,7 +215,7 @@ graph LR
 
 最后结果打印整个路径到终端，并写入文件，并返回路径顺序的单词表
 
-## Lab2项目计划与原型设计
+## 项目计划与原型设计
 
 选题为财务管理系统，要求如下
 
@@ -231,7 +231,7 @@ graph LR
 
 **极限编程：😀ddl之前加班😀**
 
-## Lab3代码评审与单元测试
+## 代码评审与单元测试
 
 **注意，此处`Lab3/code/lab1，cpp`相较于`Lab1/lab1.cpp`有所改动，在进行Lab3实验时请以Lab3目录下的代码为准**
 
@@ -251,7 +251,7 @@ graph LR
 
 详细的内容见报告，本次实验可以选择性验收，若不验收则分数仅以报告为参考
 
-## Lab4OO分析与设计
+## OO分析与设计
 
 针对**`Project`** 进行OO分析
 
