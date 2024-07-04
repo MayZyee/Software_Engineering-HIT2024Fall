@@ -35,7 +35,7 @@ git clone https://github.com/MayZyee/Financial_Management
 - [Lab3](#Lab3：代码评审与单元测试)
 - [Lab4](#Lab4：OO分析与设计)
 - [Project](#Project)
-- [迭代](#重大迭代)
+- [日志](#更新日志)
 ## Lab1：结对编程与Git实战
 
 
