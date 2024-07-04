@@ -22,7 +22,7 @@ git clone https://github.com/MayZyee/Financial_Management
 
 **如发现问题请及时发issue反馈编写者以修正 同样也欢迎发issue或邮件探讨项目的设计**
 
-- [Lab1](#Lab1：结对编程与Git实战)
+- [Lab1](#结对编程与Git实战)
     - [Input](#Input)
     - [Make_Graph](#Make_Graph)
     - [Show_Graph](#Show_Graph)
@@ -31,9 +31,9 @@ git clone https://github.com/MayZyee/Financial_Management
     - [Generate_Text](#Generate_Text)
     - [Shortest_Path](#Shortest_Path)
     - [Random_Walk](#Random_Walk)
-- [Lab2](#Lab2：项目计划与原型设计)
-- [Lab3](#Lab3：代码评审与单元测试)
-- [Lab4](#Lab4：OO分析与设计)
+- [Lab2](#项目计划与原型设计)
+- [Lab3](#代码评审与单元测试)
+- [Lab4](#OO分析与设计)
 - [Project](#Project)
 - [日志](#更新日志)
 ## Lab1：结对编程与Git实战
